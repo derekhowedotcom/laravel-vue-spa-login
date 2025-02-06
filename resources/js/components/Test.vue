@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue';
+import {onMounted } from 'vue';
 import { useAuth } from '../authHelper';
 import { useRouter } from "vue-router";
 
