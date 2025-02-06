@@ -1,5 +1,5 @@
 <template>
-    <div v-if="auth.state.value.isAuthenticated ">
+    <div v-if="auth.state.value.isAuthenticated">
         <p>Another view</p>
         <button @click='handleBackClick'>back</button>
     </div>
@@ -12,16 +12,12 @@
 import {onMounted, ref} from 'vue';
 import { useAuth } from '../authHelper';
 import { useRouter } from "vue-router";
-import axios from "axios";
 
 const auth = useAuth();
 const router = useRouter();
-const isLoading = ref(true);
-
-
 
 onMounted(async () => {
-    await auth.checkAuth();
+    await auth.checkAuth(true);
     if (!auth.state.value.isAuthenticated) {
         await router.push('/login');
     }
@@ -30,7 +26,4 @@ onMounted(async () => {
 const handleBackClick = () => {
      router.back();
 };
-
-
-
 </script>

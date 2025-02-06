@@ -23,7 +23,6 @@ const router = useRouter();
 const isLoading = ref(true);
 const UserEmailOnly = ref('');
 
-
 onMounted(async () => {
     await auth.checkAuth();
     if (!auth.state.value.isAuthenticated) {
@@ -41,7 +40,6 @@ const handleNav = async () => {
     await router.push('/test');
 };
 
-
 const getEmailOnly = async () => {
     try {
         const userResponse = await axios.get('api/getEmailOnly');
@@ -54,5 +52,4 @@ const getEmailOnly = async () => {
         isLoading.value = false;
     }
 }
-
 </script>
